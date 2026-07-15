@@ -3,125 +3,170 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Működő Közigazgatás — tervváltozatok</title>
+<title>Működő Közigazgatás — tervváltozatok · Nest Advisory</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* --- Nest arculati tokenek (forrás: nest-visual-brand / assets/nest-tokens.css) --- */
 :root{
-  --ink:#111820;--ink-2:#3d4855;--ink-3:#6b7683;
-  --line:#e3e6ea;--line-soft:#eef0f2;--bg-2:#f7f8f9;--accent:#1f4d46;
-  --serif:"Source Serif 4",Georgia,serif;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --nest-navy:#1b395d;
+  --nest-beige:#d9d1b0;
+  --nest-white:#ffffff;
+  --nest-advisory:#59adff;
+  --nest-accent:var(--nest-advisory);
+  --nest-font:'Raleway','Helvetica Neue',Arial,sans-serif;
+
+  /* levezetett semlegesek */
+  --navy-70:rgba(27,57,93,.72);
+  --navy-line:rgba(27,57,93,.16);
+  --navy-soft:#F2F5F8;
+  --maxw:1080px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);color:var(--ink);background:#fff;font-size:16px;line-height:1.6}
-.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+body{font-family:var(--nest-font);color:var(--nest-navy);background:var(--nest-white);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
 a{color:inherit;text-decoration:none}
-header{border-bottom:1px solid var(--line);padding:56px 0 40px}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:18px}
-h1{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.16;
-  letter-spacing:-.015em;margin-bottom:16px}
-.sub{font-size:16px;color:var(--ink-2);max-width:62ch;line-height:1.68}
-.grp{padding:48px 0 8px}
-.grp-h{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-3);padding-bottom:14px;border-bottom:1px solid var(--ink);margin-bottom:0}
-.item{display:grid;grid-template-columns:76px 1fr auto;gap:28px;align-items:center;
-  padding:26px 0;border-bottom:1px solid var(--line-soft);transition:background .18s}
-.item:hover{background:var(--bg-2)}
-.sw{display:flex;height:34px;border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+
+/* HEADER — navy, negatív logó */
+header{background:var(--nest-navy);padding:26px 0}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo img{height:38px;width:auto;display:block}
+.hdr-meta{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--nest-advisory)}
+
+/* HERO — navy, nagy plakátszerű tipó */
+.hero{background:var(--nest-navy);color:var(--nest-white);padding:16px 0 96px;
+  position:relative;overflow:hidden}
+.hero .brandmark{position:absolute;right:-70px;bottom:-110px;width:340px;height:340px;
+  color:var(--nest-advisory);opacity:.14;pointer-events:none}
+.hero .brandmark svg{width:100%;height:100%;display:block}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--nest-advisory);margin-bottom:22px}
+h1{font-size:56px;font-weight:800;line-height:1.06;letter-spacing:-.02em;margin-bottom:24px;
+  max-width:17ch}
+.lead{font-size:18px;font-weight:400;line-height:1.65;color:rgba(255,255,255,.82);max-width:60ch}
+
+/* PLAN GROUPS */
+.grp{padding:64px 0 0}
+.grp-h{display:flex;align-items:baseline;gap:16px;padding-bottom:16px;
+  border-bottom:2px solid var(--nest-navy);margin-bottom:0}
+.grp-h b{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.grp-h span{font-size:14px;color:var(--navy-70);font-weight:500}
+
+.item{display:grid;grid-template-columns:96px 1fr auto;gap:32px;align-items:center;
+  padding:30px 0;border-bottom:1px solid var(--navy-line);transition:background .18s}
+.item:hover{background:var(--navy-soft)}
+.sw{display:flex;height:40px;border-radius:3px;overflow:hidden;box-shadow:0 0 0 1px var(--navy-line)}
 .sw i{flex:1}
-.item h2{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.3;margin-bottom:5px}
-.item p{font-size:14px;color:var(--ink-2);line-height:1.6;max-width:62ch}
-.go{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
-  padding:9px 18px;border:1px solid var(--line);border-radius:2px;white-space:nowrap;
+.item h2{font-size:22px;font-weight:700;line-height:1.28;margin-bottom:6px;letter-spacing:-.01em}
+.item p{font-size:14.5px;color:var(--navy-70);line-height:1.6;max-width:64ch;font-weight:400}
+.go{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;
+  padding:11px 22px;border:2px solid var(--nest-navy);border-radius:3px;white-space:nowrap;
   transition:all .15s}
-.go:hover{background:var(--ink);border-color:var(--ink);color:#fff}
-.note{background:var(--bg-2);border:1px solid var(--line);padding:22px 26px;
-  margin:44px 0 0;font-size:14px;color:var(--ink-2);line-height:1.7}
-.note strong{color:var(--ink);font-weight:600}
-footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 56px;
-  font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between}
-@media(max-width:720px){
-  .wrap{padding:0 20px}
-  .item{grid-template-columns:1fr;gap:14px}
-  .sw{width:120px}
-  h1{font-size:29px}
-  footer{flex-direction:column;gap:8px}
+.go:hover{background:var(--nest-navy);color:var(--nest-white)}
+
+/* NOTE — bézs blokk */
+.note{background:var(--nest-beige);padding:40px 44px;margin:64px 0 0;border-radius:4px}
+.note h3{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:20px}
+.note p{font-size:14.5px;color:var(--nest-navy);line-height:1.75;margin-bottom:14px;max-width:76ch}
+.note p:last-child{margin-bottom:0}
+.note b{font-weight:700}
+
+/* FOOTER */
+footer{background:var(--nest-navy);color:var(--nest-white);margin-top:72px;padding:44px 0}
+.f{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.f img{height:32px;width:auto;display:block}
+.f span{font-size:12px;color:rgba(255,255,255,.62)}
+
+@media(max-width:760px){
+  .wrap{padding:0 22px}
+  h1{font-size:36px}
+  .item{grid-template-columns:1fr;gap:16px}
+  .sw{width:140px}
+  .hdr{flex-direction:column;align-items:flex-start;gap:14px}
+  .note{padding:28px 24px}
+  .f{flex-direction:column;align-items:flex-start;gap:14px}
+  .hero .brandmark{width:200px;height:200px;right:-50px;bottom:-70px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <div class="eyebrow">Belső egyeztetéshez</div>
-    <h1>Működő Közigazgatás — tervváltozatok</h1>
-    <p class="sub">Négy kattintható terv. Mindegyik teljes értékű HTML oldal, nem kép — méretezd át az ablakot, ha a reszponzív viselkedést nézed.</p>
+  <div class="wrap hdr">
+    <a href="#" class="logo"><img src="assets/nest-advisory_negativ.svg" alt="Nest Advisory"></a>
+    <span class="hdr-meta">Tervváltozatok · 2026</span>
   </div>
 </header>
+
+<section class="hero">
+  <div class="brandmark">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Nest brandmark">
+      <path d="M43.43 156.57 A80 80 0 0 0 156.57 43.43 Z" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Működő Közigazgatás</div>
+    <h1>Weboldaltervek</h1>
+    <p class="lead">Mindegyik terv teljes értékű HTML oldal, nem kép — méretezd át az ablakot, ha a reszponzív viselkedést nézed. Az „A" a visszafogott, intézményi hang; a „B" a fiatalosabb, tágasabb megközelítés.</p>
+  </div>
+</section>
 
 <div class="wrap">
 
   <div class="grp">
-    <div class="grp-h">Alapterv — visszafogott</div>
+    <div class="grp-h"><b>A terv — Indigó</b><span>Visszafogott, intézményi. Zöld jelzésértékű akcentus.</span></div>
 
     <div class="item">
-      <div class="sw"><i style="background:#111820"></i><i style="background:#1f4d46"></i><i style="background:#f7f8f9"></i></div>
+      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#2E9E4F"></i><i style="background:#F6F6FB"></i></div>
       <div>
-        <h2>Nyitóoldal</h2>
-        <p>Tinta + egy sötétzöld akcentus. Serif címsorok, vonalak dobozok helyett, minimális mozgás. A leginkább „business" hangvétel.</p>
+        <h2>A — Nyitóoldal</h2>
+        <p>Indigó mint márkaszín, kövér talpas címsorok. Vonalak dobozok helyett, minimális mozgás. A zöld jelzésértékű: az alternatíva-adatokon és a lezárt ügy jelölésén.</p>
       </div>
-      <a class="go" href="mukodo-kozigazgatas-nyitooldal.html">Megnyitás →</a>
+      <a class="go" href="A-nyitooldal.html">Megnyitás →</a>
     </div>
 
     <div class="item">
-      <div class="sw"><i style="background:#111820"></i><i style="background:#1f4d46"></i><i style="background:#f7f8f9"></i></div>
+      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#2E9E4F"></i><i style="background:#F6F6FB"></i></div>
       <div>
-        <h2>Blog</h2>
+        <h2>A — Blog</h2>
         <p>Ugyanaz a rendszer. Működő témaszűrő, kiemelt cikk, folyamatmagyarázat.</p>
       </div>
-      <a class="go" href="mukodo-kozigazgatas-blog.html">Megnyitás →</a>
+      <a class="go" href="A-blog.html">Megnyitás →</a>
     </div>
   </div>
 
   <div class="grp">
-    <div class="grp-h">Színesebb változatok — az élő oldal palettájából</div>
+    <div class="grp-h"><b>B terv — Lila</b><span>Fiatalosabb. Lekerekített flekkek, nagy tipográfia, sok fehér tér.</span></div>
 
     <div class="item">
-      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#D40000"></i><i style="background:#F6F6FB"></i></div>
+      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#8B3FD9"></i><i style="background:#F7F5FE"></i></div>
       <div>
-        <h2>A variáns — „Indigó"</h2>
-        <p>A <strong>#3D36CC</strong> mint márkaszín: címsorok, gombok, ikonok. Piros egyetlen helyen, a kapcsolatfelvételen. Zöld nincs. Színes, de egy hangja van.</p>
+        <h2>B — Nyitóoldal</h2>
+        <p>Azonos szöveg, más hang: kövér talpatlan címsorok, 24px lekerekítés, tágas ritmus. A zöld helyét lila veszi át.</p>
       </div>
-      <a class="go" href="variansA-indigo.html">Megnyitás →</a>
+      <a class="go" href="B-nyitooldal.html">Megnyitás →</a>
     </div>
 
     <div class="item">
-      <div class="sw"><i style="background:#130D87"></i><i style="background:#3D36CC"></i><i style="background:#32BF2B"></i><i style="background:#F90000"></i></div>
+      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#8B3FD9"></i><i style="background:#F7F5FE"></i></div>
       <div>
-        <h2>B variáns — „Kontraszt"</h2>
-        <p>Sötét indigó hero-blokk, zöld záró sáv. A zöld és a piros csak ott, ahol jelent valamit: a nagyságrendek táblázatban piros = jelenlegi költség, zöld = alternatíva.</p>
+        <h2>B — Blog</h2>
+        <p>Lekerekített cikk-kártyák, pill alakú témaszűrő, nagy kiemelt cikk.</p>
       </div>
-      <a class="go" href="variansB-kontraszt.html">Megnyitás →</a>
+      <a class="go" href="B-blog.html">Megnyitás →</a>
     </div>
-  </div>
-
-  <div class="note">
-    <strong>Amit érdemes tudni az egyeztetéshez.</strong><br><br>
-    A mostani élő oldalon a pillérek zöld–zöld–piros–indigó–indigó sorrendben színeződnek. A piros a 3. pilléren („Megújított tanúsítás") figyelmeztetésnek olvasódik, pedig az egy javaslat. Mindkét variánsban egységes indigó lett — a zöld/piros csak a költség-összehasonlításnál marad, ahol a konvenció egybeesik a tartalommal.<br><br>
-    A kontrasztok WCAG AA szerint ellenőrizve. Az eredeti <strong>#F90000</strong> kis szövegre nem elég (4.18), ezért gombon <strong>#D40000</strong> szerepel; a tiszta piros a nagy számoknál és a sávoknál maradt.<br><br>
-    A <strong>82 Mrd Ft</strong>-os összehasonlítás mind a négy tervben kiemelt táblázatot kapott, mert az a legerősebb érv — folyószövegben elveszett.
   </div>
 
 </div>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;padding:0 32px">
-    <span>Tervváltozatok · 2026. július</span>
-    <span>Dummy tartalom — a végleges szöveget később pontosítjuk.</span>
+  <div class="wrap f">
+    <img src="assets/nest-advisory_negativ.svg" alt="Nest Advisory">
+    <span>Tervváltozatok · 2026. július · dummy tartalom, a végleges szöveget később pontosítjuk</span>
   </div>
 </footer>
 
