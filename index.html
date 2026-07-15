@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Működő Közigazgatás — tervváltozatok</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111820;--ink-2:#3d4855;--ink-3:#6b7683;
+  --line:#e3e6ea;--line-soft:#eef0f2;--bg-2:#f7f8f9;--accent:#1f4d46;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:#fff;font-size:16px;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+a{color:inherit;text-decoration:none}
+header{border-bottom:1px solid var(--line);padding:56px 0 40px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.16;
+  letter-spacing:-.015em;margin-bottom:16px}
+.sub{font-size:16px;color:var(--ink-2);max-width:62ch;line-height:1.68}
+.grp{padding:48px 0 8px}
+.grp-h{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);padding-bottom:14px;border-bottom:1px solid var(--ink);margin-bottom:0}
+.item{display:grid;grid-template-columns:76px 1fr auto;gap:28px;align-items:center;
+  padding:26px 0;border-bottom:1px solid var(--line-soft);transition:background .18s}
+.item:hover{background:var(--bg-2)}
+.sw{display:flex;height:34px;border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+.sw i{flex:1}
+.item h2{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.3;margin-bottom:5px}
+.item p{font-size:14px;color:var(--ink-2);line-height:1.6;max-width:62ch}
+.go{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+  padding:9px 18px;border:1px solid var(--line);border-radius:2px;white-space:nowrap;
+  transition:all .15s}
+.go:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.note{background:var(--bg-2);border:1px solid var(--line);padding:22px 26px;
+  margin:44px 0 0;font-size:14px;color:var(--ink-2);line-height:1.7}
+.note strong{color:var(--ink);font-weight:600}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 56px;
+  font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between}
+@media(max-width:720px){
+  .wrap{padding:0 20px}
+  .item{grid-template-columns:1fr;gap:14px}
+  .sw{width:120px}
+  h1{font-size:29px}
+  footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Belső egyeztetéshez</div>
+    <h1>Működő Közigazgatás — tervváltozatok</h1>
+    <p class="sub">Négy kattintható terv. Mindegyik teljes értékű HTML oldal, nem kép — méretezd át az ablakot, ha a reszponzív viselkedést nézed.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="grp">
+    <div class="grp-h">Alapterv — visszafogott</div>
+
+    <div class="item">
+      <div class="sw"><i style="background:#111820"></i><i style="background:#1f4d46"></i><i style="background:#f7f8f9"></i></div>
+      <div>
+        <h2>Nyitóoldal</h2>
+        <p>Tinta + egy sötétzöld akcentus. Serif címsorok, vonalak dobozok helyett, minimális mozgás. A leginkább „business" hangvétel.</p>
+      </div>
+      <a class="go" href="mukodo-kozigazgatas-nyitooldal.html">Megnyitás →</a>
+    </div>
+
+    <div class="item">
+      <div class="sw"><i style="background:#111820"></i><i style="background:#1f4d46"></i><i style="background:#f7f8f9"></i></div>
+      <div>
+        <h2>Blog</h2>
+        <p>Ugyanaz a rendszer. Működő témaszűrő, kiemelt cikk, folyamatmagyarázat.</p>
+      </div>
+      <a class="go" href="mukodo-kozigazgatas-blog.html">Megnyitás →</a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="grp-h">Színesebb változatok — az élő oldal palettájából</div>
+
+    <div class="item">
+      <div class="sw"><i style="background:#3D36CC"></i><i style="background:#130D87"></i><i style="background:#D40000"></i><i style="background:#F6F6FB"></i></div>
+      <div>
+        <h2>A variáns — „Indigó"</h2>
+        <p>A <strong>#3D36CC</strong> mint márkaszín: címsorok, gombok, ikonok. Piros egyetlen helyen, a kapcsolatfelvételen. Zöld nincs. Színes, de egy hangja van.</p>
+      </div>
+      <a class="go" href="variansA-indigo.html">Megnyitás →</a>
+    </div>
+
+    <div class="item">
+      <div class="sw"><i style="background:#130D87"></i><i style="background:#3D36CC"></i><i style="background:#32BF2B"></i><i style="background:#F90000"></i></div>
+      <div>
+        <h2>B variáns — „Kontraszt"</h2>
+        <p>Sötét indigó hero-blokk, zöld záró sáv. A zöld és a piros csak ott, ahol jelent valamit: a nagyságrendek táblázatban piros = jelenlegi költség, zöld = alternatíva.</p>
+      </div>
+      <a class="go" href="variansB-kontraszt.html">Megnyitás →</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Amit érdemes tudni az egyeztetéshez.</strong><br><br>
+    A mostani élő oldalon a pillérek zöld–zöld–piros–indigó–indigó sorrendben színeződnek. A piros a 3. pilléren („Megújított tanúsítás") figyelmeztetésnek olvasódik, pedig az egy javaslat. Mindkét variánsban egységes indigó lett — a zöld/piros csak a költség-összehasonlításnál marad, ahol a konvenció egybeesik a tartalommal.<br><br>
+    A kontrasztok WCAG AA szerint ellenőrizve. Az eredeti <strong>#F90000</strong> kis szövegre nem elég (4.18), ezért gombon <strong>#D40000</strong> szerepel; a tiszta piros a nagy számoknál és a sávoknál maradt.<br><br>
+    A <strong>82 Mrd Ft</strong>-os összehasonlítás mind a négy tervben kiemelt táblázatot kapott, mert az a legerősebb érv — folyószövegben elveszett.
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;padding:0 32px">
+    <span>Tervváltozatok · 2026. július</span>
+    <span>Dummy tartalom — a végleges szöveget később pontosítjuk.</span>
+  </div>
+</footer>
+
+</body>
+</html>
