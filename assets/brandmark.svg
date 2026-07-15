@@ -1,0 +1,7 @@
+<!-- Nest brandmark — organikus FÉLKÖR (180° semicircle), a `t` hurkolt zárótagjából.
+     Rögzített orientáció: az egyenes (átmérő) él "/" átlós (bal-alsó → jobb-felső),
+     a nagy ív jobbra-lefelé domborodik — pontosan úgy, mint a hivatalos logófájlokban.
+     SOHA ne forgasd, ne tükrözd, ne torzítsd. Színezés: currentColor → var(--nest-accent). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Nest brandmark">
+  <path d="M43.43 156.57 A80 80 0 0 0 156.57 43.43 Z" fill="currentColor"/>
+</svg>

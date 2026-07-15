@@ -1,0 +1,30 @@
+/* Nest Visual Brand — színváltozók és fontstack.
+   Töltsd be HTML/SVG/CSS outputba, ne gépeld újra a hexeket.
+   Forrás: Nest Group brand guide v1.0 (2025). */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Fahkwang:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Közös arculati színek (minden divízió) --- */
+  --nest-navy:  #1b395d;  /* fő logószín, sötét háttér, címszín világos háttéren */
+  --nest-beige: #d9d1b0;  /* meleg semleges háttér; egyben a Group kiemelőszíne */
+  --nest-white: #ffffff;  /* negatív logó, szöveg sötét háttéren, tiszta felület */
+
+  /* --- Divíziós kiemelőszínek --- */
+  --nest-advisory: #59adff; /* Nest Advisory — világoskék */
+  --nest-comms:    #ffc212; /* Nest Comms — sárga */
+  --nest-event:    #ff2938; /* Nest Event — piros */
+  --nest-group:    #d9d1b0; /* Nest Group — bézs (alaprendszer: navy/bézs/fehér) */
+
+  /* --- Aktív divíziós kiemelőszín ---
+     Állítsd ezt a választott divízióhoz, és hivatkozz rá: var(--nest-accent).
+     Pl. Comms anyagnál: --nest-accent: var(--nest-comms); */
+  --nest-accent: var(--nest-group);
+
+  /* --- Tipográfia ---
+     Web / email / Office / generált anyag: Raleway (HU + EN lefedettség).
+     Magyar master artwork tervezőszoftverben: Fahkwang.
+     Angol master artwork: Attila Sans Basic (kereskedelmi, itt nem elérhető). */
+  --nest-font:    'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --nest-font-hu: 'Fahkwang', 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+}
