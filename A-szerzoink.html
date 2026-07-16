@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A terv — Szerzőink · Működő Közigazgatás</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#3D36CC;
+  --indigo-deep:#130D87;
+  --red-text:#D40000;
+  --green:#32BF2B;
+  --green-text:#1F7A1A;
+  --ink:#16143A;
+  --ink-2:#4A4870;
+  --ink-3:#6E6D91;
+  --line:#E4E3F0;
+  --line-soft:#EFEFF7;
+  --bg:#ffffff;
+  --bg-2:#F6F6FB;
+  --indigo-soft:#EAE9FA;
+  --maxw:1120px;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+a{color:inherit;text-decoration:none}
+
+header{border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(8px);z-index:50}
+.hdr{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:26px;height:26px;border:1.5px solid var(--indigo);border-radius:3px;position:relative;flex:none}
+.logo-mark::before,.logo-mark::after{content:"";position:absolute;bottom:5px;width:3px;background:var(--indigo)}
+.logo-mark::before{left:6px;height:9px}
+.logo-mark::after{left:13px;height:14px}
+.logo-txt{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;line-height:1.25}
+nav{display:flex;align-items:center;gap:30px}
+nav a{font-size:14px;color:var(--ink-2);transition:color .15s}
+nav a:hover,nav a.active{color:var(--indigo)}
+nav a.active{font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+  padding:10px 20px;border-radius:2px;border:1px solid var(--indigo);background:var(--indigo);
+  color:#fff;transition:all .15s;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--indigo-deep);border-color:var(--indigo-deep)}
+.btn-ghost{background:transparent;color:var(--indigo);border-color:var(--line)}
+.btn-ghost:hover{background:var(--indigo-soft);border-color:var(--indigo)}
+.btn-red{background:var(--red-text);border-color:var(--red-text)}
+.btn-red:hover{background:#a80000;border-color:#a80000}
+.btn-sm{padding:8px 16px;font-size:13px}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+  color:var(--indigo);padding-bottom:3px;border-bottom:1px solid var(--indigo);transition:gap .15s}
+.link-arrow:hover{gap:13px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+
+/* HERO */
+.hero{padding:88px 0 72px;border-bottom:1px solid var(--line-soft)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:start}
+h1{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1.1;
+  letter-spacing:-.02em;margin:22px 0 26px;color:var(--indigo)}
+.lead{font-size:17px;line-height:1.7;color:var(--ink-2);max-width:52ch}
+.lead + .lead{margin-top:16px}
+.hero-side{border-left:1px solid var(--line);padding-left:40px;padding-top:6px}
+.hero-side dt{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--indigo);margin-bottom:6px}
+.hero-side dd{font-size:14px;color:var(--ink-2);padding-bottom:22px;margin-bottom:22px;
+  border-bottom:1px solid var(--line-soft);line-height:1.6}
+.hero-side dd:last-child{border:0;padding-bottom:0;margin-bottom:0}
+
+/* PLACEHOLDER FIGYELMEZTETÉS */
+.warn{background:#FFFBF0;border:1px solid #F0E4C8;padding:20px 24px;margin:40px 0 0;
+  font-size:14px;color:#8A6D3B;line-height:1.7;max-width:90ch}
+.warn b{font-weight:600}
+
+/* GROUP */
+.grp{padding:64px 0 0}
+.grp-head{display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:18px;border-bottom:1px solid var(--indigo);margin-bottom:8px}
+.grp-head h2{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+.grp-head span{font-size:13px;color:var(--ink-3)}
+.grp-note{font-size:14.5px;color:var(--ink-2);line-height:1.7;max-width:72ch;padding:20px 0 32px}
+
+/* PERSON */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.person{background:var(--bg);padding:30px 26px 26px;display:flex;flex-direction:column;
+  transition:background .18s}
+.person:hover{background:var(--bg-2)}
+.ptop{display:flex;align-items:flex-start;gap:16px;margin-bottom:18px}
+.portrait{position:relative;width:76px;height:76px;flex:none;overflow:hidden;
+  background:var(--indigo-soft);border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72) contrast(1.04)}
+.portrait::after{content:"";position:absolute;inset:0;background:var(--indigo);
+  mix-blend-mode:multiply;opacity:.12;pointer-events:none}
+.portrait .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.portrait .ph svg{width:26px;height:26px;stroke:var(--indigo);fill:none;stroke-width:1.3;opacity:.7}
+.pname{padding-top:4px}
+.person h3{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.25;margin-bottom:5px}
+.person .role{font-size:12.5px;color:var(--indigo);font-weight:600;line-height:1.4}
+.person p{font-size:14px;color:var(--ink-2);line-height:1.68;flex:1}
+.pfile{font-size:10.5px;color:var(--ink-3);margin-top:16px;padding-top:12px;
+  border-top:1px solid var(--line-soft);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* HOW */
+.how{background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+  margin-top:80px}
+.how-in{padding:80px 0}
+.how-grid{display:grid;grid-template-columns:.9fr 1.6fr;gap:72px}
+.how h2{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.18;
+  letter-spacing:-.015em;margin-bottom:16px;color:var(--indigo)}
+.how .sub{font-size:15px;color:var(--ink-2);line-height:1.68}
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:44px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)}
+.step:first-child{padding-top:0}
+.step:last-child{border-bottom:0;padding-bottom:0}
+.step-num{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--ink-3);line-height:1.1}
+.step.done .step-num{color:var(--green-text)}
+.step h4{font-size:15px;font-weight:600;margin-bottom:7px}
+.step p{font-size:14px;color:var(--ink-2);line-height:1.65}
+
+/* BAND */
+.band{background:var(--indigo-deep);color:#fff}
+.band-in{padding:56px 0;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.band h2{font-family:var(--serif);font-weight:600;font-size:27px;line-height:1.28;margin-bottom:10px}
+.band p{font-size:15px;color:rgba(255,255,255,.68);max-width:62ch;line-height:1.65}
+.band .cta{display:flex;gap:12px;flex:none}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:64px 0 0;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1.1fr .9fr 1.1fr;gap:36px;padding-bottom:48px}
+.f-about p{font-size:13px;color:var(--ink-3);line-height:1.65;margin-top:18px;max-width:30ch}
+.f-col h5{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:16px;color:var(--indigo)}
+.f-col a{display:block;font-size:13px;color:var(--ink-2);padding:5px 0;transition:color .15s}
+.f-col a:hover{color:var(--indigo)}
+.f-contact div{font-size:13px;color:var(--ink-2);padding:5px 0;line-height:1.5}
+.social{display:flex;gap:8px;margin-top:14px}
+.social a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border:1px solid var(--line);border-radius:2px;color:var(--ink-2);transition:all .15s;padding:0}
+.social a:hover{border-color:var(--indigo);color:var(--indigo);background:var(--indigo-soft)}
+.social svg{width:16px;height:16px;fill:currentColor}
+.f-bar{border-top:1px solid var(--line-soft);padding:22px 0;display:flex;
+  justify-content:space-between;font-size:12px;color:var(--ink-3);gap:20px}
+.f-bar div{display:flex;gap:26px}
+.note{background:var(--indigo-soft);border-bottom:1px solid var(--line);padding:10px 32px;
+  font-size:12px;color:var(--indigo-deep);text-align:center}
+.note a{text-decoration:underline}
+
+@media(max-width:980px){
+  .hero-grid,.how-grid{grid-template-columns:1fr;gap:44px}
+  .hero-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:28px}
+  .people{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:40px}
+  .band-in{flex-direction:column;align-items:flex-start}
+  .f-grid{grid-template-columns:1fr 1fr;gap:36px}
+  nav{display:none}
+}
+@media(max-width:620px){
+  .wrap{padding:0 20px}
+  .people{grid-template-columns:1fr}
+  h1{font-size:32px}
+  .band .cta{flex-direction:column;width:100%}
+  .f-grid{grid-template-columns:1fr}
+  .f-bar{flex-direction:column;gap:12px}
+  .f-bar div{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="note"><strong>A terv — „Indigó" · Szerzőink</strong> · 12 szakértő. A nevek és portrék helykitöltők. · <a href="index.html">Vissza a tervválasztóhoz</a></div>
+
+<header>
+  <div class="wrap hdr">
+    <a href="A-nyitooldal.html" class="logo"><span class="logo-mark"></span><span class="logo-txt">Működő<br>Közigazgatás</span></a>
+    <nav><a href="A-nyitooldal.html">Nyitóoldal</a><a href="A-tanulmany.html">Tanulmány</a><a href="A-blog.html">Blog</a><a href="#" class="active">Szerzőink</a><a href="#">Kapcsolat</a></nav>
+    <a href="A-tanulmany.html" class="btn btn-ghost btn-sm">Olvasd el a tanulmányt</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Szerzőink</div>
+      <h1>Kik állnak a<br>tanulmány mögött?</h1>
+      <p class="lead">A tanulmányt gyakorlati tapasztalattal rendelkező szakemberek készítették, akik a közigazgatási működés, az iratkezelés, a digitális szolgáltatások, az informatikai rendszerek, az adatkezelés, a szabályozás és az intézményi folyamatok oldaláról vizsgálták a problémát.</p>
+      <p class="lead">A kezdeményezés célja nem egy konkrét szállító vagy rendszer támogatása. A szerzők saját szakmai tapasztalataik alapján, független szakmai munkaként vesznek részt benne.</p>
+    </div>
+    <dl class="hero-side">
+      <dt>Létszám</dt>
+      <dd>12 szerző · 12 önálló szakterület</dd>
+      <dt>Tagolás</dt>
+      <dd>Gazdaság és szabályozás · Technológia és biztonság · Ágazati és adatoldal</dd>
+      <dt>Kapcsolódás</dt>
+      <dd>Minden szerző a tanulmány egy vagy több fejezetéhez járult hozzá</dd>
+    </dl>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="warn">
+    <b>Ezek a biók jelenleg mintaszövegek.</b> A végleges oldalon a szakértők neve, titulusa és jóváhagyott szakmai bemutatása szerepeljen. A portréfotók helye elkészült — a képeket <b>assets/szerzo-1.jpg</b> … <b>assets/szerzo-12.jpg</b> néven bemásolva jelennek meg.
+  </div>
+</div>
+
+<!-- 1. CSOPORT -->
+<section class="grp">
+  <div class="wrap">
+    <div class="grp-head">
+      <h2>Gazdaság és szabályozás</h2>
+      <span>1., 3. és 5. fejezet</span>
+    </div>
+    <p class="grp-note">Ez a csoport azt vizsgálja, mibe kerül a jelenlegi működés, milyen szabályozási keret hozta létre, és milyen feltételek mellett állítható helyre a verseny. Az ő munkájukra épül a tanulmány költségbecslése és a tanúsítási javaslat.</p>
+  </div>
+  <div class="wrap">
+    <div class="people">
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-1.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><rect x="3" y="6" width="26" height="17" rx="2"/><path d="M11 28h10M16 23v5"/><path d="M9 17l4-5 3 3 4-6 3 4"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Közigazgatási digitalizációs szakértő</div>
+          </div>
+        </div>
+        <p>Több mint [X] éve foglalkozik közigazgatási digitális működéssel, elektronikus ügyintézéssel és intézményi folyamatok fejlesztésével. A tanulmányban elsősorban a back-office működés, a digitális átállás és az intézményi végrehajthatóság kérdéseivel foglalkozott.</p>
+        <div class="pfile">assets/szerzo-1.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-4.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M16 5v22M8 27h16M16 8 6 12M16 8l10 4"/><path d="M6 12 2 21a4.5 4.5 0 0 0 8 0Z"/><path d="M26 12l-4 9a4.5 4.5 0 0 0 8 0Z"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Közigazgatási jogi szakértő</div>
+          </div>
+        </div>
+        <p>A közigazgatási eljárások, elektronikus ügyintézési szabályok és ágazati jogszabályi követelmények területén rendelkezik tapasztalattal. A tanulmányban a szabályozási környezet, a tanúsítási rendeletek és a kodifikációs javaslatok szakmai ellenőrzésében vett részt.</p>
+        <div class="pfile">assets/szerzo-4.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-11.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M4 27h24"/><rect x="6" y="17" width="5" height="10"/><rect x="14" y="11" width="5" height="16"/><rect x="22" y="5" width="5" height="22"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Közbeszerzési és TCO-elemzési szakértő</div>
+          </div>
+        </div>
+        <p>Informatikai beszerzések, fenntartási költségek és teljes életciklus-költség számítások elemzésével foglalkozik. A tanulmányban a monopolhelyzetű rendszerek költségkockázatait, a versenypiaci összehasonlításokat és a TCO-alapú döntéshozatal szempontjait vizsgálta.</p>
+        <div class="pfile">assets/szerzo-11.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-2.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M18 3H9a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10Z"/><path d="M18 3v7h7"/><path d="M12 17h8M12 22h5"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Iratkezelési és dokumentumkezelési szakértő</div>
+          </div>
+        </div>
+        <p>Szakterülete a közigazgatási iratkezelés, dokumentumkezelés és elektronikus ügyviteli rendszerek gyakorlati működése. A tanulmányban az iratkezelési életciklus, a tanúsítási minimumok és a hosszú távú dokumentumhitelesség kérdéseihez járult hozzá.</p>
+        <div class="pfile">assets/szerzo-2.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-3.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><rect x="3" y="6" width="26" height="17" rx="2"/><path d="M11 28h10M16 23v5"/><path d="M9 17l4-5 3 3 4-6 3 4"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Workflow- és folyamatszervezési szakértő</div>
+          </div>
+        </div>
+        <p>Közigazgatási és intézményi folyamatok felmérésével, racionalizálásával és digitalizálásával foglalkozik. A tanulmányban a hivatali workflow-k, a jóváhagyási láncok, a felelősségi pontok és a mérhető működés kialakításának szakmai alapjait dolgozta ki.</p>
+        <div class="pfile">assets/szerzo-3.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-12.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><path d="M3 16h26"/><path d="M16 3a20 20 0 0 1 0 26 20 20 0 0 1 0-26Z"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Nemzetközi digitális közigazgatási szakértő</div>
+          </div>
+        </div>
+        <p>Nemzetközi e-közigazgatási modellek, különösen az interoperabilitás, dokumentumcsere és digitális állami infrastruktúrák összehasonlításával foglalkozik. A tanulmányban a nemzetközi példák, köztük az észt modell tanulságainak feldolgozásában vett részt.</p>
+        <div class="pfile">assets/szerzo-12.jpg</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2. CSOPORT -->
+<section class="grp">
+  <div class="wrap">
+    <div class="grp-head">
+      <h2>Technológia és biztonság</h2>
+      <span>2. és 3. fejezet</span>
+    </div>
+    <p class="grp-note">Ez a csoport a rendszerek oldaláról nézi a kérdést: architektúra, interfészek, adathordozhatóság, kiberbiztonság és elektronikus hitelesítés. Az ő munkájuk adja a tanúsítási minimumkövetelmények és az interoperabilitási javaslatok technikai alapját.</p>
+  </div>
+  <div class="wrap">
+    <div class="people">
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-5.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><path d="M3 16h26"/><path d="M16 3a20 20 0 0 1 0 26 20 20 0 0 1 0-26Z"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Informatikai architektúra- és interoperabilitási szakértő</div>
+          </div>
+        </div>
+        <p>Szakterülete a nagy intézményi rendszerek architektúrája, az interfészek, az adathordozhatóság és a szakrendszeri integráció. A tanulmányban a moduláris rendszerlogika, a vendor lock-in csökkentése és a szabványos adatkapcsolatok kidolgozása volt a fő fókusza.</p>
+        <div class="pfile">assets/szerzo-5.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-6.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><circle cx="16" cy="13" r="9"/><path d="m11 20-2 9 7-4 7 4-2-9"/><path d="m12 13 3 3 5-5"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Kiberbiztonsági és üzemeltetési szakértő</div>
+          </div>
+        </div>
+        <p>Kritikus rendszerek biztonsági, üzemeltetési és szolgáltatási szintű követelményeivel foglalkozik. A tanulmányban a kiberbiztonsági minimumok, az SLA-k, az incidenskezelés és a működésbiztonsági kockázatok értékeléséhez járult hozzá.</p>
+        <div class="pfile">assets/szerzo-6.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-7.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><circle cx="16" cy="13" r="9"/><path d="m11 20-2 9 7-4 7 4-2-9"/><path d="m12 13 3 3 5-5"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Elektronikus aláírási és hitelesítési szakértő</div>
+          </div>
+        </div>
+        <p>Az elektronikus aláírás, a digitális hitelesítés, az időbélyegzés és az elektronikus dokumentumok joghatásának kérdéseivel foglalkozik. A tanulmányban az e-aláírás gyakorlati integrációja, a rendszeren kívüli működés kockázatai és a hosszú távú hitelesség témáihoz adott szakmai inputot.</p>
+        <div class="pfile">assets/szerzo-7.jpg</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. CSOPORT -->
+<section class="grp">
+  <div class="wrap">
+    <div class="grp-head">
+      <h2>Ágazati működés és adat</h2>
+      <span>4. fejezet és ágazati példák</span>
+    </div>
+    <p class="grp-note">Ez a csoport konkrét intézménytípusok működését vizsgálja — önkormányzatok, egészségügyi intézmények —, valamint azt, hogy milyen adatokból lesz megbízható vezetői információ. Az intézményi audit mérőszámai innen származnak.</p>
+  </div>
+  <div class="wrap">
+    <div class="people">
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-8.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M18 3H9a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10Z"/><path d="M18 3v7h7"/><path d="M12 17h8M12 22h5"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Önkormányzati működési szakértő</div>
+          </div>
+        </div>
+        <p>Önkormányzati igazgatási folyamatokkal, ASP-rendszerhasználattal és helyi hivatali működéssel foglalkozik. A tanulmányban az önkormányzati szektor eltérő méretű intézményeinek digitalizációs kihívásait és beavatkozási pontjait segített feltárni.</p>
+        <div class="pfile">assets/szerzo-8.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-9.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M18 3H9a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10Z"/><path d="M18 3v7h7"/><path d="M12 17h8M12 22h5"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Egészségügyi igazgatási digitalizációs szakértő</div>
+          </div>
+        </div>
+        <p>Egészségügyi intézmények igazgatási, ügyviteli és dokumentumkezelési folyamataival foglalkozik. A tanulmányban a kórházi háttérrendszerek, az elektronikus ügyintézési integráció és az egészségügyi intézményi iratkezelés problémáinak elemzésében vett részt.</p>
+        <div class="pfile">assets/szerzo-9.jpg</div>
+      </article>
+
+      <article class="person">
+        <div class="ptop">
+          <div class="portrait">
+            <img src="assets/szerzo-10.jpg" alt="">
+            <div class="ph"><svg viewBox="0 0 32 32"><path d="M4 27h24"/><rect x="6" y="17" width="5" height="10"/><rect x="14" y="11" width="5" height="16"/><rect x="22" y="5" width="5" height="22"/></svg></div>
+          </div>
+          <div class="pname">
+            <h3>[Név]</h3>
+            <div class="role">Adatmenedzsment- és vezetői riporting szakértő</div>
+          </div>
+        </div>
+        <p>Szakterülete az adatminőség, törzsadat-kezelés, vezetői információs rendszerek és működési KPI-ok kialakítása. A tanulmányban az adatalapú közigazgatás, az intézményi audit mérőszámai és a vezetői riportálás témáihoz járult hozzá.</p>
+        <div class="pfile">assets/szerzo-10.jpg</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOGYAN KÉSZÜL -->
+<section class="how">
+  <div class="wrap how-in">
+    <div class="how-grid">
+      <div>
+        <h2>Hogyan készül a tanulmány?</h2>
+        <p class="sub">A cél tényalapú szakmai párbeszéd. Ehhez az kell, hogy minden állítás visszakereshető legyen — a szerzők neve nem helyettesíti a forrást.</p>
+        <div style="margin-top:26px"><a href="A-tanulmany.html" class="link-arrow">Tovább a tanulmányhoz →</a></div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <h4>Szakterületi vázlat</h4>
+            <p>A felelős szerző összeállítja a fejezet vázlatát, megjelölve a felhasznált forrásokat és a nyitott kérdéseket.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <h4>Keresztlektorálás</h4>
+            <p>Minden fejezetet legalább egy másik szakterület szerzője átnéz. A vitatott állítások vagy forrást kapnak, vagy kikerülnek.</p>
+          </div>
+        </div>
+        <div class="step done">
+          <div class="step-num">03</div>
+          <div>
+            <h4>Publikálás és javítás</h4>
+            <p>A megjelent anyag nem lezárt. A beérkező szakmai észrevételeket átvezetjük, a változásokat jelöljük.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <div class="wrap band-in">
+    <div>
+      <h2>A tanulmány szakmai párbeszédet nyit</h2>
+      <p>A Működő Közigazgatás célja, hogy a közigazgatási digitalizációról újra tényalapú, szakmai vita induljon. A tanulmány nem lezárt válasz, hanem javaslatcsomag: kiindulópont a szabályozók, intézmények, szakértők, szállítók és döntéshozók közös munkájához.</p>
+    </div>
+    <div class="cta">
+      <a href="#" class="btn btn-red">Kapcsolatfelvétel</a>
+      <a href="A-blog.html" class="btn" style="background:#fff;border-color:#fff;color:var(--indigo-deep)">Szakmai cikkek olvasása</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-txt">Működő<br>Közigazgatás</span></div>
+        <p>Független elemzések és javaslatok a hatékony, átlátható és valóban működő közigazgatásért.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2.05c4 0 4.75 2.6 4.75 6V21h-4v-5.6c0-1.35 0-3.05-1.9-3.05s-2.2 1.45-2.2 2.95V21h-4V9Z"/></svg></a>
+          <a href="#" aria-label="E-mail"><svg viewBox="0 0 24 24"><path d="M2 5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5Zm2.5 1L12 12l7.5-6h-15ZM4 7.3V18h16V7.3l-8 6.4-8-6.4Z"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Oldalak</h5>
+        <a href="A-nyitooldal.html">Nyitóoldal</a><a href="A-tanulmany.html">Tanulmány</a><a href="A-blog.html">Blog</a><a href="A-szerzoink.html">Szerzőink</a><a href="#">Kapcsolat</a>
+      </div>
+      <div class="f-col">
+        <h5>A tanulmány</h5>
+        <a href="A-tanulmany.html">Versenyhelyzet visszaállítása</a><a href="A-tanulmany.html">Belső működés digitalizációja</a><a href="A-tanulmany.html">Megújított tanúsítás</a><a href="A-tanulmany.html">Intézményi audit</a><a href="A-tanulmany.html">Gazdasági hatás</a>
+      </div>
+      <div class="f-col">
+        <h5>Jogi</h5>
+        <a href="#">Impresszum</a><a href="#">Adatkezelési tájékoztató</a><a href="#">Szerzői jogok</a>
+      </div>
+      <div class="f-col f-contact">
+        <h5>Kapcsolat</h5>
+        <div>info@mukodokozigazgatas.hu</div>
+        <div>linkedin.com/company/<br>mukodokozigazgatas</div>
+        <div style="padding-top:8px"><a href="#" class="link-arrow" style="font-size:13px">Kapcsolatfelvétel →</a></div>
+      </div>
+    </div>
+    <div class="f-bar">
+      <span>© 2026 Működő Közigazgatás. Minden jog fenntartva.</span>
+      <div><a href="#">Impresszum</a><a href="#">Adatkezelési tájékoztató</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

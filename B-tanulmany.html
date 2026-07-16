@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B terv — Tanulmány · Működő Közigazgatás</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#3D36CC;
+  --indigo-deep:#130D87;
+  --red:#D40000;
+  --purple:#8B3FD9;
+  --purple-deep:#6D28D9;
+  --purple-soft:#F3EBFD;
+  --ink:#16143A;
+  --ink-2:#4A4870;
+  --ink-3:#6E6D91;
+  --line:#E9E7F3;
+  --bg:#ffffff;
+  --bg-2:#F7F5FE;
+  --indigo-soft:#EAE9FA;
+  --r:24px;
+  --r-sm:14px;
+  --maxw:1200px;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;font-size:17px;line-height:1.6}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);z-index:50;padding:18px 0}
+.hdr{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:34px;height:34px;border-radius:11px;background:var(--indigo);position:relative;flex:none}
+.logo-mark::before,.logo-mark::after{content:"";position:absolute;bottom:8px;width:4px;border-radius:2px;background:#fff}
+.logo-mark::before{left:9px;height:10px}
+.logo-mark::after{left:17px;height:16px}
+.logo-txt{font-size:13px;font-weight:800;letter-spacing:.04em;line-height:1.2}
+nav{display:flex;align-items:center;gap:4px}
+nav a{font-size:14.5px;font-weight:500;color:var(--ink-2);padding:9px 14px;border-radius:999px;transition:all .15s}
+nav a:hover{background:var(--bg-2);color:var(--indigo)}
+nav a.active{background:var(--indigo-soft);color:var(--indigo);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:600;
+  padding:15px 28px;border-radius:999px;border:2px solid var(--indigo);background:var(--indigo);
+  color:#fff;transition:all .18s;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--indigo-deep);border-color:var(--indigo-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--indigo);border-color:var(--line)}
+.btn-ghost:hover{background:var(--bg-2);border-color:var(--indigo);transform:translateY(-2px)}
+.btn-purple{background:var(--purple);border-color:var(--purple)}
+.btn-purple:hover{background:var(--purple-deep);border-color:var(--purple-deep)}
+.btn-sm{padding:10px 20px;font-size:14px}
+.link-arrow{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:600;
+  color:var(--indigo);transition:gap .18s}
+.link-arrow:hover{gap:15px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--purple);
+  background:var(--purple-soft);padding:8px 16px;border-radius:999px}
+footer{background:var(--bg-2);border-radius:var(--r) var(--r) 0 0;padding:72px 0 40px}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr .9fr 1.1fr;gap:32px;padding-bottom:48px}
+.f-about p{font-size:14.5px;color:var(--ink-3);line-height:1.65;margin-top:20px;max-width:32ch}
+.f-col h5{font-size:13px;font-weight:800;margin-bottom:18px}
+.f-col a{display:block;font-size:14px;color:var(--ink-2);padding:6px 0;transition:color .15s}
+.f-col a:hover{color:var(--indigo)}
+.f-contact div{font-size:14px;color:var(--ink-2);padding:6px 0;line-height:1.5}
+.social{display:flex;gap:8px;margin-top:16px}
+.social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;
+  border-radius:999px;background:#fff;color:var(--ink-2);transition:all .15s;padding:0}
+.social a:hover{background:var(--indigo);color:#fff;transform:translateY(-2px)}
+.social svg{width:17px;height:17px;fill:currentColor}
+.f-bar{border-top:1px solid var(--line);padding-top:26px;display:flex;
+  justify-content:space-between;font-size:13px;color:var(--ink-3);gap:20px}
+.f-bar div{display:flex;gap:26px}
+.note{background:var(--purple-soft);padding:12px 40px;font-size:13px;color:var(--purple-deep);
+  text-align:center;font-weight:500}
+.note a{text-decoration:underline;font-weight:700}
+.hero{padding:56px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+h1{font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.032em;margin:26px 0 22px}
+.sub{font-size:19px;line-height:1.55;color:var(--ink);max-width:46ch;font-weight:500}
+.lead{font-size:16.5px;line-height:1.68;color:var(--ink-2);max-width:52ch;margin-top:22px;
+  padding-top:22px;border-top:1px solid var(--line)}
+.hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.pdfbox{background:var(--bg-2);border-radius:var(--r);padding:34px 32px}
+.pdfbox h4{font-size:13px;font-weight:800;color:var(--purple);margin-bottom:14px}
+.pdfbox p{font-size:15px;color:var(--ink-2);line-height:1.6;margin-bottom:18px}
+.pdffile{display:flex;align-items:center;gap:16px;padding:20px 22px;background:#fff;
+  border-radius:var(--r-sm);transition:all .18s}
+.pdffile:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(22,20,58,.1)}
+.pdffile svg{width:28px;height:34px;stroke:var(--purple);fill:none;stroke-width:1.3;flex:none}
+.pdffile b{display:block;font-size:15px;font-weight:700;line-height:1.35;margin-bottom:4px}
+.pdffile span{font-size:12.5px;color:var(--ink-3)}
+.pdfnote{font-size:12.5px;color:var(--ink-3);line-height:1.55;margin-top:16px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.pdfnote code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+  background:#fff;padding:2px 7px;border-radius:5px}
+.prose{padding:0 0 72px}
+.prose-in{display:grid;grid-template-columns:.75fr 1.25fr;gap:60px;align-items:start}
+.prose h2{font-size:42px;font-weight:800;line-height:1.06;letter-spacing:-.03em;position:sticky;top:100px}
+.prose p{font-size:17px;color:var(--ink-2);line-height:1.75;margin-bottom:18px;max-width:64ch}
+.prose strong{color:var(--ink);font-weight:700}
+.claims{padding:0 0 96px}
+.claims-in{background:var(--bg-2);border-radius:var(--r);padding:80px 56px}
+.sec-top{max-width:44ch;margin-bottom:40px}
+.sec-top h2{font-size:42px;font-weight:800;line-height:1.06;letter-spacing:-.03em;margin:18px 0 14px}
+.sec-top p{font-size:17px;color:var(--ink-3)}
+.claim-list{display:flex;flex-direction:column;gap:14px}
+.claim{background:#fff;border-radius:var(--r-sm);padding:32px 34px;display:grid;
+  grid-template-columns:56px 1fr;gap:24px;align-items:start;transition:transform .18s}
+.claim:hover{transform:translateX(6px)}
+.claim-num{width:56px;height:56px;border-radius:18px;background:var(--indigo-soft);color:var(--indigo);
+  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.claim h3{font-size:23px;font-weight:700;line-height:1.22;letter-spacing:-.02em;margin-bottom:10px}
+.claim p{font-size:15.5px;color:var(--ink-2);line-height:1.68}
+.props{padding:0 0 96px}
+.props-top{max-width:60ch;margin-bottom:40px}
+.props-top h2{font-size:42px;font-weight:800;line-height:1.06;letter-spacing:-.03em;margin:18px 0 14px}
+.props-top p{font-size:17px;color:var(--ink-2);line-height:1.68}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prop{background:var(--bg-2);border-radius:var(--r);padding:32px 30px;transition:all .2s}
+.prop:hover{background:var(--indigo-soft);transform:translateY(-5px)}
+.prop-icon{width:48px;height:48px;border-radius:15px;background:#fff;color:var(--indigo);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.prop-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6}
+.prop h3{font-size:21px;font-weight:700;line-height:1.22;letter-spacing:-.02em;margin-bottom:10px}
+.prop p{font-size:15px;color:var(--ink-2);line-height:1.6}
+.result{padding:0 0 96px}
+.result-in{background:var(--indigo-soft);border-radius:var(--r);padding:72px 56px;
+  display:grid;grid-template-columns:.75fr 1.25fr;gap:60px;align-items:start}
+.result h2{font-size:42px;font-weight:800;line-height:1.06;letter-spacing:-.03em}
+.result p{font-size:17px;color:var(--ink-2);line-height:1.75;margin-bottom:18px;max-width:64ch}
+.result strong{color:var(--indigo);font-weight:700}
+.result .disc{background:#fff;border-radius:var(--r-sm);padding:24px 26px;font-size:15px;
+  color:var(--ink-2);line-height:1.7;margin-top:8px}
+.dl{padding:0 0 96px}
+.dl-in{border:2px solid var(--indigo);border-radius:var(--r);padding:56px 48px;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.dl h2{font-size:38px;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:16px}
+.dl p{font-size:16.5px;color:var(--ink-2);line-height:1.7;max-width:54ch}
+.dl .cta{display:flex;flex-direction:column;gap:12px}
+.dl .cta .btn{justify-content:center}
+.dl .extra{display:flex;flex-direction:column;gap:12px;margin-top:6px;padding-top:18px;border-top:1px solid var(--line)}
+.who{padding:0 0 96px}
+.who-in{background:var(--bg-2);border-radius:var(--r);padding:72px 56px;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.who h2{font-size:38px;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin:18px 0 18px}
+.who p{font-size:16.5px;color:var(--ink-2);line-height:1.7;margin-bottom:14px}
+.who-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.who-stat{background:#fff;border-radius:var(--r-sm);padding:28px 26px}
+.who-stat b{display:block;font-size:38px;font-weight:800;color:var(--purple);line-height:1;
+  letter-spacing:-.03em;margin-bottom:8px}
+.who-stat span{font-size:13.5px;color:var(--ink-3);line-height:1.5;display:block}
+.band{padding:0 0 96px}
+.band-in{background:var(--purple);color:#fff;border-radius:var(--r);padding:56px;
+  display:flex;align-items:center;justify-content:space-between;gap:48px}
+.band h2{font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.025em;margin-bottom:12px}
+.band p{font-size:16.5px;color:rgba(255,255,255,.88);max-width:62ch;line-height:1.6}
+.band .cta{display:flex;gap:12px;flex:none}
+.band .btn{background:#fff;border-color:#fff;color:var(--purple-deep)}
+.band .btn:hover{background:var(--purple-soft);border-color:var(--purple-soft)}
+.band .btn-o{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.band .btn-o:hover{background:rgba(255,255,255,.15);border-color:#fff}
+@media(max-width:1040px){
+  .hero-grid,.prose-in,.result-in,.dl-in,.who-in{grid-template-columns:1fr;gap:44px}
+  .prose h2{position:static}
+  .prop-grid{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:42px}
+  .prose h2,.sec-top h2,.props-top h2,.result h2,.dl h2,.who h2{font-size:32px}
+  .claims-in,.result-in,.dl-in,.who-in,.band-in{padding:48px 32px}
+  .band-in{flex-direction:column;align-items:flex-start}
+  nav{display:none}
+  .f-grid{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 22px}
+  .prop-grid,.who-stats{grid-template-columns:1fr}
+  h1{font-size:32px}
+  .sub{font-size:17px}
+  .prose h2,.sec-top h2,.props-top h2,.result h2,.dl h2,.who h2,.band h2{font-size:26px}
+  .hero-cta,.band .cta{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .claim{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .f-bar{flex-direction:column;gap:12px}
+  .f-bar div{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="note"><strong>B terv — „Lila" · Tanulmány</strong> · A PDF-link még nem él, a helye jelölve. Szövege azonos az A tervével. · <a href="index.html">Vissza a tervválasztóhoz</a></div>
+
+<header>
+  <div class="wrap hdr">
+    <a href="B-nyitooldal.html" class="logo"><span class="logo-mark"></span><span class="logo-txt">Működő<br>Közigazgatás</span></a>
+    <nav><a href="B-nyitooldal.html">Nyitóoldal</a><a href="#" class="active">Tanulmány</a><a href="B-blog.html">Blog</a><a href="B-szerzoink.html">Szerzőink</a><a href="#">Kapcsolat</a></nav>
+    <a href="#dl" class="btn btn-ghost btn-sm">Tanulmány letöltése</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Tanulmány</span>
+      <h1>Az intézményi működés helyreállítása</h1>
+      <p class="sub">Szakpolitikai javaslat a magyar közigazgatás digitális működőképességének helyreállítására.</p>
+      <p class="lead">A tanulmány azt vizsgálja, hogyan tehető a közigazgatás belső működése gyorsabbá, átláthatóbbá, mérhetővé és mesterséges intelligenciára felkészítetté. A fókusz nem az állampolgárok felé látható online felületeken van, hanem a hivatalok belső működésén: az iratkezelésen, a workflow-kon, az elektronikus aláíráson, az intézmények közötti adatcserén és a szállítói függőségek csökkentésén.</p>
+      <div class="hero-cta">
+        <a href="#dl" class="btn">Teljes tanulmány letöltése</a>
+        <a href="#dl" class="btn btn-ghost">Vezetői összefoglaló olvasása</a>
+      </div>
+    </div>
+    <div class="pdfbox">
+      <h4>Letöltés</h4>
+      <p>A teljes tanulmány PDF formátumban letölthető:</p>
+      <a href="#" class="pdffile">
+        <svg viewBox="0 0 26 32" stroke-linecap="round"><path d="M16 1H4a2 2 0 0 0-2 2v26a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V9Z"/><path d="M16 1v8h8"/><path d="M7 18h12M7 23h8"/></svg>
+        <span>
+          <b>Működő Közigazgatás — teljes tanulmány</b>
+          <span>PDF · [méret] · [oldalszám] oldal</span>
+        </span>
+      </a>
+      <p class="pdfnote">A végleges PDF-link helye: <code>/tanulmany/mukodo-kozigazgatas-tanulmany.pdf</code></p>
+    </div>
+  </div>
+</section>
+
+<section class="prose">
+  <div class="wrap prose-in">
+    <h2>Mi a probléma?</h2>
+    <div>
+      <p>A magyar közigazgatás digitális lemaradása nem elsősorban az állampolgárok felé látható online ügyintézési felületeken jelentkezik. A valódi szűk keresztmetszet az intézmények belső működésében van: az iratkezelésben, a jóváhagyási láncokban, az elektronikus aláírásban, a dokumentumkezelésben, az adatcserében és az ügymenetek mérhetőségében.</p>
+      <p>Sok ügy ma már elektronikusan indítható, de a hivatalon belül gyakran továbbra is papíron, e-mailben, Excel-táblákban vagy manuális döntési pontokon halad végig. Ez lassítja az ügyintézést, növeli a hibakockázatot, rontja az adatminőséget, és megakadályozza az automatizálást.</p>
+    </div>
+  </div>
+</section>
+
+<section class="prose">
+  <div class="wrap prose-in">
+    <h2>Miért számít ez?</h2>
+    <div>
+      <p>A közigazgatás működőképessége nem technikai részletkérdés. Meghatározza, hogy az állam mennyire képes végrehajtani a döntéseit, mennyire gyorsan szolgálja ki az állampolgárokat és a vállalkozásokat, hogyan használja fel a közpénzt, és mennyire lesz képes a jövőben biztonságosan alkalmazni a mesterséges intelligenciát.</p>
+      <p><strong>A digitális állam valódi mércéje nem az, hogy hány ügy indítható online, hanem az, hogy a teljes ügyintézési folyamat digitálisan, követhetően és mérhetően fut-e végig.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="claims">
+  <div class="wrap">
+    <div class="claims-in">
+      <div class="sec-top">
+        <h2>A tanulmány öt fő állítása</h2>
+      </div>
+      <div class="claim-list">
+        <div class="claim">
+          <div class="claim-num">01</div>
+          <div>
+            <h3>A versenyhelyzet helyreállítása működésbiztonsági kérdés</h3>
+            <p>A kötelezően kijelölt rendszerek és monopolhelyzetek csökkentik az intézmények mozgásterét. Ha egy hivatal nem tud szállítót váltani, elveszíti az alkupozícióját, nehezebben érvényesíti a minőségi elvárásokat, és kiszolgáltatottá válik egyetlen technológiai vagy üzleti szereplőnek.</p>
+          </div>
+        </div>
+        <div class="claim">
+          <div class="claim-num">02</div>
+          <div>
+            <h3>A valódi lemaradás a back-office működésben van</h3>
+            <p>Az online ügyindítás önmagában nem jelent digitális közigazgatást. Ha a beérkező iratot kinyomtatják, e-mailben küldözgetik, manuálisan rögzítik, majd visszaszkennelik, akkor az állam belső működése továbbra is papíralapú logika szerint működik.</p>
+          </div>
+        </div>
+        <div class="claim">
+          <div class="claim-num">03</div>
+          <div>
+            <h3>Meg kell újítani a tanúsítási rendszert</h3>
+            <p>A tanúsításnak nem új monopóliumot kell létrehoznia, hanem egységes, nyilvános és ellenőrizhető minőségi minimumot kell biztosítania. Egy korszerű tanúsított rendszernek támogatnia kell a workflow-t, az interoperabilitást, az adathordozhatóságot, az e-aláírást, a kiberbiztonságot és a szolgáltatási szinteket is.</p>
+          </div>
+        </div>
+        <div class="claim">
+          <div class="claim-num">04</div>
+          <div>
+            <h3>Az intézmények működését is auditálni kell</h3>
+            <p>Nem elég, ha egy intézménynek van digitális rendszere. Mérni kell, hogy ténylegesen digitálisan dolgozik-e. Az intézményi audit azt vizsgálja, hogy a folyamatok átláthatók-e, a felelősségi pontok követhetők-e, az ügyintézési idők mérhetők-e, és a vezetők rendelkeznek-e megbízható működési adatokkal.</p>
+          </div>
+        </div>
+        <div class="claim">
+          <div class="claim-num">05</div>
+          <div>
+            <h3>A működő közigazgatás gazdasági hasznot termel</h3>
+            <p>A gyorsabb ügyintézés, a kevesebb manuális munka, a jobb adatminőség és az alacsonyabb működési kockázat nemcsak hivatali előny. A vállalkozások, az állampolgárok és az állam egésze számára is mérhető gazdasági hasznot hozhat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="props">
+  <div class="wrap">
+    <div class="props-top">
+      <h2>Mit javasol a tanulmány?</h2>
+      <p>A tanulmány nem egy új központi rendszer kijelölését javasolja. A megoldás a verseny, a tanúsítás, az interoperabilitás és az intézményi audit együttes megerősítése.</p>
+    </div>
+    <div class="prop-grid">
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><path d="M16 5v22M8 27h16M16 8 6 12M16 8l10 4"/><path d="M6 12 2 21a4.5 4.5 0 0 0 8 0Z"/><path d="M26 12l-4 9a4.5 4.5 0 0 0 8 0Z"/></svg></div>
+        <h3>Verseny és szállítóválasztás</h3>
+        <p>A kötelező kijelölések felülvizsgálata, a szabad intézményi választás helyreállítása, TCO-alapú költségvizsgálattal.</p>
+      </div>
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><circle cx="16" cy="13" r="9"/><path d="m11 20-2 9 7-4 7 4-2-9"/><path d="m12 13 3 3 5-5"/></svg></div>
+        <h3>Tanúsítás 2.0</h3>
+        <p>A jelenlegi tanúsítási rendszer korszerűsítése funkcionális, workflow-, interoperabilitási, kiberbiztonsági és SLA-követelményekkel.</p>
+      </div>
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><rect x="3" y="6" width="26" height="17" rx="3"/><path d="M11 28h10M16 23v5"/><path d="M9 17l4-5 3 3 4-6 3 4"/></svg></div>
+        <h3>Intézményi audit</h3>
+        <p>Érettségi szinteken alapuló mérés arról, hogy az adott intézmény ténylegesen digitálisan működik-e.</p>
+      </div>
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><path d="M18 3H9a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10Z"/><path d="M18 3v7h7"/><path d="M12 17h8M12 22h5"/></svg></div>
+        <h3>Adathordozhatóság</h3>
+        <p>Szabványos export, migráció és interfészek, hogy a szállítóváltás adatvesztés nélkül megvalósítható legyen.</p>
+      </div>
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><path d="M3 16h26"/><path d="M16 3a20 20 0 0 1 0 26 20 20 0 0 1 0-26Z"/></svg></div>
+        <h3>Dokumentumcsomag-szabvány</h3>
+        <p>Olyan géppel feldolgozható dokumentum- és metaadatcsomag bevezetése, amely lehetővé teszi az automatikus iktatást, ügyintéző-hozzárendelést és intézményközi workflow-t.</p>
+      </div>
+      <div class="prop">
+        <div class="prop-icon"><svg viewBox="0 0 32 32" stroke-linecap="round"><path d="M4 27h24"/><rect x="6" y="17" width="5" height="10" rx="1"/><rect x="14" y="11" width="5" height="16" rx="1"/><rect x="22" y="5" width="5" height="22" rx="1"/></svg></div>
+        <h3>AI-ready működés</h3>
+        <p>A mesterséges intelligencia biztonságos alkalmazásának előfeltétele a rendezett adatvagyon, a tiszta jogosultsági rendszer, a naplózás, az auditálhatóság és a szabályozott belső folyamat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="result">
+  <div class="wrap">
+    <div class="result-in">
+      <h2>Mi a várható eredmény?</h2>
+      <div>
+        <p>A tanulmány szerint a back-office digitalizáció nem egyszerű informatikai beruházás, hanem <strong>állami működési infrastruktúra-fejlesztés</strong>. Célja, hogy a közigazgatás gyorsabb, olcsóbban fenntartható, kevésbé személyfüggő, jobban mérhető és biztonságosabban fejleszthető legyen.</p>
+        <p class="disc">A pontos költségszámok szakmai és pénzügyi ellenőrzést igényelnek. A probléma lényege azonban egyértelmű: a verseny hiánya, a zárt rendszerek, a nem mérhető belső folyamatok és az adatcserék szabványosítatlansága egyszerre okoz költség-, minőség- és működésbiztonsági kockázatot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dl" id="dl">
+  <div class="wrap">
+    <div class="dl-in">
+      <div>
+        <h2>Olvasd el a teljes tanulmányt!</h2>
+        <p>A teljes anyag részletesen bemutatja a közigazgatási digitális működés jelenlegi problémáit, az ágazati példákat, a monopolhelyzetből fakadó kockázatokat, a tanúsítási rendszer megújítását, az intézményi audit bevezetését és a javasolt szabályozási lépéseket.</p>
+      </div>
+      <div class="cta">
+        <a href="#" class="btn btn-purple">Teljes tanulmány letöltése PDF-ben</a>
+        <div class="extra">
+          <a href="#" class="link-arrow">Vezetői összefoglaló letöltése →</a>
+          <a href="B-blog.html" class="link-arrow">Kapcsolódó szakmai cikkek →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="wrap">
+    <div class="who-in">
+      <div>
+        <span class="eyebrow">Kik állnak a tanulmány mögött?</span>
+        <h2>Gyakorlati tapasztalattal rendelkező szakemberek</h2>
+        <p>A tanulmányt gyakorlati tapasztalattal rendelkező szakemberek készítették, akik a közigazgatási működés, az iratkezelés, a digitális szolgáltatások, az informatikai rendszerek, az adatkezelés, a szabályozás és az intézményi folyamatok oldaláról vizsgálták a problémát.</p>
+        <div style="margin-top:24px"><a href="B-szerzoink.html" class="link-arrow">Szerzőink bemutatása →</a></div>
+      </div>
+      <div class="who-stats">
+        <div class="who-stat"><b>12</b><span>szerző, önálló szakterülettel</span></div>
+        <div class="who-stat"><b>5</b><span>fő állítás, egymásra épülő javaslatokkal</span></div>
+        <div class="who-stat"><b>6</b><span>javasolt beavatkozási irány</span></div>
+        <div class="who-stat"><b>9</b><span>tématerület a kapcsolódó blogon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-in">
+      <div>
+        <h2>A tanulmány szakmai párbeszédet nyit</h2>
+        <p>A Működő Közigazgatás célja, hogy a közigazgatási digitalizációról újra tényalapú, szakmai vita induljon. A tanulmány nem lezárt válasz, hanem javaslatcsomag: kiindulópont a szabályozók, intézmények, szakértők, szállítók és döntéshozók közös munkájához.</p>
+      </div>
+      <div class="cta">
+        <a href="#" class="btn">Kapcsolatfelvétel</a>
+        <a href="B-blog.html" class="btn btn-o">Szakmai cikkek olvasása</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about">
+        <div class="logo"><span class="logo-mark"></span><span class="logo-txt">Működő<br>Közigazgatás</span></div>
+        <p>Független elemzések és javaslatok a hatékony, átlátható és valóban működő közigazgatásért.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2.05c4 0 4.75 2.6 4.75 6V21h-4v-5.6c0-1.35 0-3.05-1.9-3.05s-2.2 1.45-2.2 2.95V21h-4V9Z"/></svg></a>
+          <a href="#" aria-label="E-mail"><svg viewBox="0 0 24 24"><path d="M2 5a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5Zm2.5 1L12 12l7.5-6h-15ZM4 7.3V18h16V7.3l-8 6.4-8-6.4Z"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Oldalak</h5>
+        <a href="B-nyitooldal.html">Nyitóoldal</a><a href="B-tanulmany.html">Tanulmány</a><a href="B-blog.html">Blog</a><a href="B-szerzoink.html">Szerzőink</a><a href="#">Kapcsolat</a>
+      </div>
+      <div class="f-col">
+        <h5>A tanulmány</h5>
+        <a href="B-tanulmany.html">Versenyhelyzet visszaállítása</a><a href="B-tanulmany.html">Belső működés digitalizációja</a><a href="B-tanulmany.html">Megújított tanúsítás</a><a href="B-tanulmany.html">Intézményi audit</a><a href="B-tanulmany.html">Gazdasági hatás</a>
+      </div>
+      <div class="f-col">
+        <h5>Jogi</h5>
+        <a href="#">Impresszum</a><a href="#">Adatkezelési tájékoztató</a><a href="#">Szerzői jogok</a>
+      </div>
+      <div class="f-col f-contact">
+        <h5>Kapcsolat</h5>
+        <div>info@mukodokozigazgatas.hu</div>
+        <div>linkedin.com/company/<br>mukodokozigazgatas</div>
+        <div style="padding-top:8px"><a href="#" class="link-arrow" style="font-size:14px">Kapcsolatfelvétel →</a></div>
+      </div>
+    </div>
+    <div class="f-bar">
+      <span>© 2026 Működő Közigazgatás. Minden jog fenntartva.</span>
+      <div><a href="#">Impresszum</a><a href="#">Adatkezelési tájékoztató</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
