@@ -4,26 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>B terv — Tanulmány · Működő Közigazgatás</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --indigo:#3D36CC;
-  --indigo-deep:#130D87;
+  --indigo:#0050A0;
+  --indigo-deep:#0050A0;
   --red:#D40000;
-  --purple:#8B3FD9;
-  --purple-deep:#6D28D9;
-  --purple-soft:#F3EBFD;
-  --ink:#16143A;
-  --ink-2:#4A4870;
-  --ink-3:#6E6D91;
-  --line:#E9E7F3;
+  --beige:#E7DDC8;--beige-deep:#0050A0;--beige-soft:#F2EBDF;--beige-dark:#0050A0;--green:#0F6E42;--green-soft:#E4F0E9;--purple:var(--beige);
+  --purple-deep:var(--beige-deep);
+  --purple-soft:var(--beige-soft);
+  --ink:#182338;
+  --ink-2:#182338;
+  --ink-3:#6C7690;
+  --line:#E7E1D3;
   --bg:#ffffff;
-  --bg-2:#F7F5FE;
-  --indigo-soft:#EAE9FA;
+  --bg-2:#F2EBDF;
+  --indigo-soft:#E7ECFB;
   --r:24px;
   --r-sm:14px;
   --maxw:1200px;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -185,11 +185,101 @@ h1{font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.032em;margin
   .f-bar{flex-direction:column;gap:12px}
   .f-bar div{flex-direction:column;gap:8px}
 }
+
+/* --- Kormány-közeli finomítás: kék-fehér-bézs (kormany.hu hangulat) --- */
+.band-in{background:var(--beige);color:var(--ink)}
+.band h2{color:var(--ink)}
+.band p{color:var(--ink-2)}
+.band .btn{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.band .btn:hover{background:var(--indigo-deep);border-color:var(--indigo-deep)}
+.band .btn-o{background:transparent;border-color:var(--indigo);color:var(--indigo)}
+.band .btn-o:hover{background:#fff;border-color:var(--indigo);color:var(--indigo)}
+.btn-purple{background:var(--beige);border-color:var(--beige);color:var(--indigo-deep)}
+.btn-purple:hover{background:var(--indigo-deep);border-color:var(--indigo-deep);color:#fff}
+.eyebrow{color:var(--indigo-deep);background:var(--beige)}
+.tag{color:var(--indigo)}
+.fact dt{color:var(--indigo)}
+.person .role{color:var(--indigo)}
+.cmeta dt{color:var(--indigo)}
+.who-stat b{color:var(--indigo)}
+.row.alt .row-l small,.row.alt .row-v{color:var(--indigo)}
+.row.alt .bar i{background:var(--indigo)}
+.step.done .step-num{color:var(--indigo)}
+article h2 .n{color:var(--indigo)}
+.note{color:var(--indigo-deep)}
+.warn{color:var(--indigo-deep)}
+.draft{color:var(--indigo-deep)}
+.side-cta h4{color:var(--beige)}
+
+/* --- Redukált paletta: egy kék, nincs színátmenet --- */
+.hero::after,.cta-in::after,.feat::after,.close-in::after{display:none}
+.btn:hover{background:var(--indigo);filter:brightness(1.16);transform:translateY(-2px)}
+
+/* --- Javítás: gomb-hover, első kulcskártya, sötét bézs --- */
+.btn{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.btn:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:brightness(1.2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--indigo)}
+.btn-ghost:hover{background:var(--beige-soft);border-color:var(--indigo);color:var(--indigo);filter:none}
+.btn-purple{background:var(--beige);border-color:var(--beige);color:var(--indigo)}
+.btn-purple:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:none}
+.feat .btn{background:#fff;border-color:#fff;color:var(--indigo)}
+.feat .btn:hover{background:var(--beige-soft);border-color:var(--beige-soft);color:var(--indigo);filter:none}
+.side-cta .btn{background:#fff;border-color:#fff;color:var(--indigo)}
+.side-cta .btn:hover{background:var(--beige-soft);border-color:var(--beige-soft);color:var(--indigo);filter:none}
+.key:first-child{background:var(--bg-2);color:var(--ink)}
+.key:first-child:hover{background:var(--indigo-soft)}
+.key:first-child .key-icon{background:#fff;color:var(--indigo)}
+.key:first-child .key-num{color:var(--ink-3)}
+.key:first-child p{color:var(--ink-2)}
+.band-in{background:var(--beige-dark);color:#fff}
+.band h2{color:#fff}
+.band p{color:rgba(255,255,255,.85)}
+.band .btn{background:#fff;border-color:#fff;color:var(--beige-dark)}
+.band .btn:hover{background:var(--beige-soft);border-color:var(--beige-soft);color:var(--beige-dark);filter:none;transform:translateY(-2px)}
+.band .btn-o{background:transparent;border-color:#fff;color:#fff}
+.band .btn-o:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff;filter:none}
+
+.eyebrow{background:var(--beige-dark);color:#fff}
+
+/* --- Sáv + eyebrow: világos bézs + tinta --- */
+.eyebrow{background:var(--beige);color:var(--ink)}
+.band-in{background:var(--beige);color:var(--ink)}
+.band h2{color:var(--ink)}
+.band p{color:var(--ink-2)}
+.band .btn{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.band .btn:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:brightness(1.2);transform:translateY(-2px)}
+.band .btn-o{background:transparent;border-color:var(--indigo);color:var(--indigo)}
+.band .btn-o:hover{background:#fff;border-color:var(--indigo);color:var(--indigo);filter:none}
+
+/* --- Gombok kontextus szerint + működő hover --- */
+.btn{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.btn:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:brightness(1.22);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--indigo)}
+.btn-ghost:hover{background:var(--bg-2);border-color:var(--indigo);color:var(--indigo);filter:none;transform:translateY(-2px)}
+.btn-purple{background:var(--beige);border-color:var(--beige);color:var(--indigo)}
+.btn-purple:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:none;transform:translateY(-2px)}
+/* sötét kék blokkokon: ghost = fehér, primary = fehér gomb */
+.feat .btn,.cta-in .btn,.close-in .btn,.join-in .btn,.side-cta .btn{background:#fff;border-color:#fff;color:var(--indigo)}
+.feat .btn:hover,.cta-in .btn:hover,.close-in .btn:hover,.join-in .btn:hover,.side-cta .btn:hover{background:var(--beige-soft);border-color:var(--beige-soft);color:var(--indigo);filter:none;transform:translateY(-2px)}
+.feat .btn-purple,.cta-in .btn-purple,.close-in .btn-purple,.join-in .btn-purple{background:var(--beige);border-color:var(--beige);color:var(--indigo)}
+.feat .btn-purple:hover,.cta-in .btn-purple:hover,.close-in .btn-purple:hover,.join-in .btn-purple:hover{background:#fff;border-color:#fff;color:var(--indigo);filter:none;transform:translateY(-2px)}
+.feat .btn-ghost,.cta-in .btn-ghost,.close-in .btn-ghost,.join-in .btn-ghost,.side-cta .btn-ghost{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.feat .btn-ghost:hover,.cta-in .btn-ghost:hover,.close-in .btn-ghost:hover,.join-in .btn-ghost:hover,.side-cta .btn-ghost:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff;filter:none;transform:translateY(-2px)}
+/* beige záró sáv: kék primary, kék outline */
+.band-in .btn{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.band-in .btn:hover{background:var(--indigo);border-color:var(--indigo);color:#fff;filter:brightness(1.22);transform:translateY(-2px)}
+.band-in .btn-o{background:transparent;border-color:var(--indigo);color:var(--indigo)}
+.band-in .btn-o:hover{background:#fff;border-color:var(--indigo);color:var(--indigo);filter:none;transform:translateY(-2px)}
+
+/* --- Zöld (kormány-hangolt) szemantikus akcentus --- */
+.row.alt .row-l small,.row.alt .row-v{color:var(--green)}
+.row.alt .bar i{background:var(--green)}
+.step.done .step-num{background:var(--green-soft);color:var(--green)}
 </style>
 </head>
 <body>
 
-<div class="note"><strong>B terv — „Lila" · Tanulmány</strong> · A PDF-link még nem él, a helye jelölve. Szövege azonos az A tervével. · <a href="index.html">Vissza a tervválasztóhoz</a></div>
+<div class="note"><strong>B terv — „Kék-bézs" · Tanulmány</strong> · A PDF-link még nem él, a helye jelölve. Szövege azonos az A tervével. · <a href="index.html">Vissza a tervválasztóhoz</a></div>
 
 <header>
   <div class="wrap hdr">
@@ -225,6 +315,7 @@ h1{font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.032em;margin
     </div>
   </div>
 </section>
+
 
 <section class="prose">
   <div class="wrap prose-in">
